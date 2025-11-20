@@ -79,19 +79,12 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fadeInUp">What We Do</h1>
-          <div className="w-24 h-1 bg-brand-orange mx-auto mb-8 animate-fadeInUp animation-delay-200"></div>
-          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fadeInUp animation-delay-400">
-            Across regions and borders around the globe, our team of experts uses decades of 
+      <section className="bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-5 md:mb-6 leading-tight">About Us</h1>
+          <div className="w-20 md:w-24 h-1.5 bg-brand-orange mb-6 md:mb-8"></div>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl leading-relaxed font-normal">
+            Across regions and borders around the globe, our team of experts uses decades of
             industry-leading and nationally-recognized expertise to empower the connections between{' '}
             <span className="text-brand-orange font-semibold italic">people</span>,{' '}
             <span className="text-brand-orange font-semibold italic">ideas</span>, and{' '}
@@ -103,9 +96,9 @@ export default function AboutPage() {
       {/* NAICS Codes Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">NAICS Codes</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-black mb-3 md:mb-4">NAICS Codes</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-normal">
               Our certified capabilities across multiple industry classifications
             </p>
           </div>
@@ -128,7 +121,7 @@ export default function AboutPage() {
               We Work Where Others Won't
             </h2>
             <p className="text-center text-gray-600 mb-8">Some of the countries we've touched:</p>
-            
+
             {/* Animated Flag Carousel */}
             <div className="relative overflow-hidden">
               <div className="flex gap-4" style={{ animation: 'scroll-left 30s linear infinite' }}>
@@ -150,34 +143,46 @@ export default function AboutPage() {
       </section>
 
       {/* Team Leaders Section with Card Grid */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-24 md:py-32 bg-gradient-to-b from-white to-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">Our Team Leaders</h2>
-            <p className="text-gray-600">Meet the experts driving our success</p>
+          <div className="text-center mb-14 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-black mb-5 md:mb-6">Our Team Leaders</h2>
+            <div className="w-20 md:w-24 h-1.5 bg-brand-orange mx-auto mb-5 md:mb-6"></div>
+            <p className="text-base md:text-lg text-gray-600 font-normal">Meet the experts driving our success</p>
           </div>
-          
+
           {/* Navigation Controls */}
-          <div className="flex justify-center items-center gap-4 mb-8">
+          <div className="flex justify-center items-center gap-6 mb-12">
             <button
               onClick={() => setCurrentTeamIndex(Math.max(0, currentTeamIndex - 3))}
               disabled={currentTeamIndex === 0}
-              className="p-3 rounded-full bg-brand-blue text-white hover:bg-brand-dark-blue disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
+              className="p-4 rounded-xl bg-brand-blue text-white hover:bg-brand-blue-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 disabled:hover:scale-100"
               aria-label="Previous team members"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            
-            <span className="text-sm text-gray-600 font-medium">
-              {Math.floor(currentTeamIndex / 3) + 1} / {Math.ceil(teamLeaders.length / 3)}
-            </span>
-            
+
+            <div className="flex items-center gap-3">
+              {Array.from({ length: Math.ceil(teamLeaders.length / 3) }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentTeamIndex(idx * 3)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    Math.floor(currentTeamIndex / 3) === idx
+                      ? 'bg-brand-orange w-8'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to page ${idx + 1}`}
+                />
+              ))}
+            </div>
+
             <button
               onClick={() => setCurrentTeamIndex(Math.min(teamLeaders.length - 3, currentTeamIndex + 3))}
               disabled={currentTeamIndex >= teamLeaders.length - 3}
-              className="p-3 rounded-full bg-brand-blue text-white hover:bg-brand-dark-blue disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
+              className="p-4 rounded-xl bg-brand-blue text-white hover:bg-brand-blue-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 disabled:hover:scale-100"
               aria-label="Next team members"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,44 +194,31 @@ export default function AboutPage() {
           {/* Team Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamLeaders.slice(currentTeamIndex, currentTeamIndex + 3).map((leader, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-gray-100 hover:border-brand-orange transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl"
+              <div
+                key={index}
+                className="group bg-white rounded-3xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl"
+                style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)' }}
               >
                 {/* Team Member Image */}
-                <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-50 overflow-hidden">
+                <div className="relative h-96 bg-gradient-to-br from-gray-100 to-gray-50 overflow-hidden">
                   <Image
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-contain p-4"
+                    className="object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                
+
                 {/* Team Member Info */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-brand-black mb-2">{leader.name}</h3>
-                  <div className="w-16 h-1 bg-brand-orange mb-4"></div>
-                  <p className="text-sm text-brand-blue font-semibold mb-4 uppercase tracking-wide">{leader.title}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-6">{leader.description}</p>
+                <div className="p-8">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">{leader.name}</h3>
+                  <p className="text-brand-blue font-medium mb-4">{leader.title}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-6 font-normal">
+                    {leader.description}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Pagination Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: Math.ceil(teamLeaders.length / 3) }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentTeamIndex(index * 3)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  Math.floor(currentTeamIndex / 3) === index 
-                    ? 'w-8 bg-brand-orange' 
-                    : 'w-2 bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to page ${index + 1}`}
-              />
             ))}
           </div>
         </div>

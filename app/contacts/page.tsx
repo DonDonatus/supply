@@ -26,18 +26,11 @@ export default function ContactsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Contact Us</h1>
-          <div className="w-24 h-1 bg-brand-orange mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+      <section className="bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-5 md:mb-6 leading-tight">Contact Us</h1>
+          <div className="w-20 md:w-24 h-1.5 bg-brand-orange mb-6 md:mb-8"></div>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl leading-relaxed font-normal">
             Let's discuss how we can help transform your supply chain
           </p>
         </div>
@@ -49,7 +42,7 @@ export default function ContactsPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 md:p-10 shadow-xl">
-              <h2 className="text-3xl font-bold text-brand-black mb-6">Get in Touch</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-brand-black mb-6">Get in Touch</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -141,7 +134,7 @@ export default function ContactsPage() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 shadow-xl">
-                <h3 className="text-2xl font-bold text-brand-black mb-6">Contact Information</h3>
+                <h3 className="text-xl md:text-2xl font-semibold text-brand-black mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center flex-shrink-0">
@@ -191,7 +184,7 @@ export default function ContactsPage() {
               </div>
 
               <div className="bg-gradient-to-br from-[#3987b8] to-[#2d6a94] rounded-2xl p-8 text-white shadow-xl">
-                <h3 className="text-2xl font-bold mb-4">Office Hours</h3>
+                <h3 className="text-xl md:text-2xl font-semibold mb-4">Office Hours</h3>
                 <div className="space-y-2 text-white/90">
                   <p><span className="font-semibold">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
                   <p><span className="font-semibold">Saturday:</span> 10:00 AM - 4:00 PM</p>

@@ -63,24 +63,11 @@ export default function SuccessesPage() {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative py-20 md:py-28 bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div
-                        className="absolute inset-0"
-                        style={{
-                            backgroundImage:
-                                "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
-                            backgroundSize: "40px 40px",
-                        }}
-                    ></div>
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        Our Successes
-                    </h1>
-                    <div className="w-24 h-1 bg-brand-orange mx-auto mb-8"></div>
-                    <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <section className="bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white py-20 md:py-24">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-5 md:mb-6 leading-tight">Our Successes</h1>
+                    <div className="w-20 md:w-24 h-1.5 bg-brand-orange mb-6 md:mb-8"></div>
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl leading-relaxed font-normal">
                         Delivering excellence across industries and borders.
                         Explore our proven track record of transformative
                         projects.
@@ -102,7 +89,7 @@ export default function SuccessesPage() {
                                         {story.category}
                                     </span>
                                 </div>
-                                <h3 className="text-2xl font-bold text-brand-black mb-4">
+                                <h3 className="text-xl md:text-2xl font-semibold text-brand-black mb-4">
                                     {story.title}
                                 </h3>
                                 <p className="text-gray-700 leading-relaxed">
@@ -117,8 +104,8 @@ export default function SuccessesPage() {
             {/* Awards & Recognition Section */}
             <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">
+                    <div className="text-center mb-12 md:mb-16">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-black mb-3 md:mb-4">
                             Awards & Recognition
                         </h2>
                         <div className="w-20 h-1 bg-brand-orange mx-auto"></div>
@@ -159,8 +146,8 @@ export default function SuccessesPage() {
             {/* Publications Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">
+                    <div className="text-center mb-12 md:mb-16">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-black mb-3 md:mb-4">
                             Publications
                         </h2>
                         <div className="w-20 h-1 bg-brand-orange mx-auto"></div>

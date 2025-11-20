@@ -205,110 +205,123 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Services</h1>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-gray-900 via-[#1e4d6b] to-[#3987b8] text-white py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-5 md:mb-6 leading-tight">Our Services</h1>
+          <div className="w-20 md:w-24 h-1.5 bg-brand-orange mb-6 md:mb-8"></div>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl leading-relaxed font-normal">
+            Comprehensive supply chain solutions tailored to your unique needs
+          </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
-          <aside className="lg:w-64 flex-shrink-0">
-            <div className="sticky top-24 bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-6 shadow-lg">
-              <nav className="space-y-2">
-                {servicesData.map((service) => (
-                  <button
-                    key={service.id}
-                    onClick={() => handleServiceClick(service)}
-                    className={`w-full text-left px-3 md:px-4 py-2.5 md:py-3 rounded-lg transition-all duration-200 text-sm md:text-base ${
-                      activeService.id === service.id
-                        ? 'bg-[#3987b8] text-white font-semibold shadow-md'
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-[#3987b8]'
-                    }`}
-                  >
-                    {service.title}
-                  </button>
-                ))}
-              </nav>
-            </div>
-          </aside>
-
-          <main className="flex-1 min-w-0">
-            <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-gradient-to-br from-[#3987b8] to-[#2d6a94] text-white mb-6 md:mb-8 shadow-xl">
-              <div className="absolute top-0 right-0 w-1/4 md:w-1/3 h-full bg-gradient-to-l from-[#ff8c42] to-transparent opacity-80"></div>
-              
-              <div className="relative z-10 p-6 md:p-10 lg:p-12">
-                <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
-                  <div className="p-3 md:p-4 bg-white/10 backdrop-blur-sm rounded-xl flex-shrink-0">
-                    <div className="text-[#ff8c42]">
-                      {activeService.icon}
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3 break-words">
-                      {activeService.title.toUpperCase()}
-                    </h2>
-                    <div className="w-12 md:w-16 h-1 bg-[#ff8c42] mb-3 md:mb-4"></div>
-                    <p className="text-base md:text-lg lg:text-xl text-white/90 font-light">
-                      {activeService.tagline}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 md:p-8 shadow-lg">
-              <div className="mb-6 md:mb-8">
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">Overview</h3>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  {activeService.description}
-                </p>
-              </div>
-
-              <div className="border-t-2 border-gray-100 my-6 md:my-8"></div>
-
-              <div className="mb-6 md:mb-8">
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
-                  {activeService.title} capabilities include:
-                </h3>
-                <ul className="space-y-2">
-                  {activeService.capabilities.map((capability, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <svg className="w-4 h-4 md:w-5 md:h-5 text-[#3987b8] mr-2 md:mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span className="text-sm md:text-base text-gray-700">{capability}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="border-t-2 border-gray-100 my-6 md:my-8"></div>
-
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">Key Benefits</h3>
-                <div className="space-y-3">
-                  {activeService.benefits.map((benefit, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3 md:p-4 bg-gradient-to-r from-[#3987b8]/5 to-transparent rounded-lg border-l-4 border-[#3987b8] hover:shadow-md transition-shadow"
+      {/* Main Content */}
+      <section className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-4 gap-10 md:gap-12">
+            {/* Sidebar Navigation */}
+            <aside className="lg:col-span-1">
+              <div className="sticky top-24 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-5 md:mb-6">Services</h2>
+                <nav className="space-y-2">
+                  {servicesData.map((service) => (
+                    <button
+                      key={service.id}
+                      onClick={() => setActiveService(service)}
+                      className={`group w-full text-left px-5 py-4 rounded-xl transition-all duration-300 ${
+                        activeService.id === service.id
+                          ? 'bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white shadow-lg transform scale-105'
+                          : 'text-gray-700 hover:bg-gray-100 hover:shadow-md hover:translate-x-1'
+                      }`}
                     >
-                      <p className="text-sm md:text-base text-gray-800 font-medium">{benefit}</p>
-                    </div>
+                      <span className="text-sm font-medium flex items-center gap-2">
+                        {activeService.id === service.id && (
+                          <span className="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>
+                        )}
+                        {service.title}
+                      </span>
+                    </button>
                   ))}
+                </nav>
+              </div>
+            </aside>
+
+            {/* Main Service Content */}
+            <main className="lg:col-span-3">
+              {/* Service Header Card */}
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white mb-10 shadow-2xl">
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-orange/40 to-transparent"></div>
+                
+                <div className="relative z-10 p-10 md:p-14">
+                  <div className="flex flex-col sm:flex-row items-start gap-6">
+                    <div className="p-5 bg-white/10 backdrop-blur-md rounded-2xl flex-shrink-0">
+                      <div className="text-brand-orange">
+                        {activeService.icon}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 leading-tight">
+                        {activeService.title.toUpperCase()}
+                      </h2>
+                      <div className="w-20 h-1.5 bg-brand-orange mb-5"></div>
+                      <p className="text-base md:text-lg lg:text-xl text-white/90 font-normal leading-relaxed">
+                        {activeService.tagline}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </main>
+
+              {/* Service Details Card */}
+              <div className="bg-white rounded-3xl p-10 md:p-12 shadow-xl border border-gray-100">
+                {/* Overview */}
+                <div className="mb-10">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-5">Overview</h3>
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed font-normal">
+                    {activeService.description}
+                  </p>
+                </div>
+
+                <div className="border-t border-gray-200 my-10"></div>
+
+                {/* Capabilities */}
+                <div className="mb-10">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-5 md:mb-6">
+                    {activeService.capabilities ? 'Key Capabilities' : 'What We Offer'}              </h3>
+                  <ul className="grid md:grid-cols-2 gap-4">
+                    {activeService.capabilities.map((capability, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <svg className="w-6 h-6 text-brand-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-base text-gray-700">{capability}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="border-t border-gray-200 my-10"></div>
+
+                {/* Benefits */}
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-5 md:mb-6">Key Benefits</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {activeService.benefits.map((benefit, idx) => (
+                      <div
+                        key={idx}
+                        className="group p-5 bg-gradient-to-br from-brand-blue/5 to-transparent rounded-2xl border-l-4 border-brand-blue hover:shadow-lg hover:border-brand-orange transition-all duration-300"
+                      >
+                        <p className="text-base text-gray-800 font-medium">{benefit}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
