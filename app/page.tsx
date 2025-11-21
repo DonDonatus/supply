@@ -20,7 +20,7 @@ export default function Home() {
         {/* Background image covering full section */}
         <div className="absolute inset-0">
           <Image
-            src="/dock.jpg"
+            src="/container.jpg"
             alt="Shipping Containers"
             fill
             className="object-cover"
@@ -137,7 +137,7 @@ export default function Home() {
                 </div>
                 <div className="relative h-48 rounded-xl overflow-hidden">
                   <Image
-                    src="/ware.jpg"
+                    src="/worker.jpg"
                     alt="Supply Chain Management"
                     fill
                     className="object-cover"
@@ -146,7 +146,7 @@ export default function Home() {
               </div>
               <div className="relative h-64 rounded-xl overflow-hidden">
                 <Image
-                  src="/ware.jpg"
+                  src="/supply.jpg"
                   alt="Warehouse Operations"
                   fill
                   className="object-cover"
