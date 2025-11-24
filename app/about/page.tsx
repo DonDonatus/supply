@@ -48,7 +48,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-blue pt-32">
+      <section className="relative min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-blue">
         <div className="absolute inset-0">
           <Image
             src="/about.jpg"
@@ -60,36 +60,36 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-brand-blue/40"></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             About Us
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Trusted by leading organizations across government, defense, and private sectors
           </p>
         </div>
       </section>
 
       {/* NAICS Codes Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4">
+          <div className="mb-6 sm:mb-8 md:mb-10">
+            <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-3 sm:mb-4">
               CERTIFICATIONS
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
               NAICS Codes
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {naicsCodes.map((item, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors duration-200"
+                className="bg-gray-50 rounded-lg p-3 sm:p-4 hover:bg-gray-100 transition-colors duration-200"
               >
-                <div className="text-brand-blue text-lg font-bold mb-1">{item.code}</div>
-                <p className="text-gray-900 text-sm font-normal">{item.name}</p>
+                <div className="text-brand-blue text-base sm:text-lg font-bold mb-1">{item.code}</div>
+                <p className="text-gray-900 text-xs sm:text-sm font-normal">{item.name}</p>
               </div>
             ))}
           </div>
@@ -97,34 +97,34 @@ export default function AboutPage() {
       </section>
 
       {/* Countries Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
             {/* Left Column - Globe Visualization */}
-            <div className="flex justify-center">
-              <div className="relative w-full max-w-md aspect-square">
+            <div className="flex justify-center order-2 lg:order-1">
+              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square">
                 <Globe3D />
               </div>
             </div>
 
             {/* Right Column - Content */}
-            <div>
-              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4">
+            <div className="order-1 lg:order-2">
+              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-3 sm:mb-4">
                 GLOBAL REACH
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
                 We Work Where Others Won't
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
                 Our team has delivered successful projects across 45+ countries spanning six continents.
               </p>
 
               {/* Countries list in columns */}
-              <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-1.5 sm:gap-y-2">
                 {countries.map((country, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></div>
-                    <p className="text-gray-700 text-sm">{country}</p>
+                    <p className="text-gray-700 text-xs sm:text-sm">{country}</p>
                   </div>
                 ))}
               </div>
@@ -134,16 +134,16 @@ export default function AboutPage() {
       </section>
 
       {/* Team Leaders Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4">
+          <div className="mb-8 sm:mb-10 md:mb-12 text-center">
+            <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-3 sm:mb-4">
               OUR TEAM
             </div>
           </div>
 
           {/* Team Grid - All members displayed */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
             {teamLeaders.map((leader, index) => (
               <button
                 key={index}
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 className="flex flex-col items-center text-center group cursor-pointer"
               >
                 {/* Circular Profile Image */}
-                <div className="relative w-32 h-32 mb-4">
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4">
                   <div className="absolute inset-0 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-gray-300 transition-all duration-300">
                     <Image
                       src={leader.image}
@@ -163,10 +163,10 @@ export default function AboutPage() {
                 </div>
 
                 {/* Team Member Info */}
-                <h3 className="text-base font-bold text-gray-900 mb-2">
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1 sm:mb-2">
                   {leader.name}
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed line-clamp-3 px-2">
+                <p className="text-xs text-gray-600 leading-relaxed line-clamp-3 px-1 sm:px-2">
                   {leader.description}
                 </p>
               </button>

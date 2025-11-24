@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -16,23 +16,11 @@ export default function Header() {
     { name: 'Clients', href: '/clients' },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Dynamic Navigation Bar - Transparent at top, solid when scrolled */}
-      <nav className={`py-4 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-brand-blue shadow-lg' 
-          : 'bg-transparent'
-      }`}>
+    <header className="absolute top-0 left-0 right-0 z-50">
+      {/* Navigation Bar - Transparent background */}
+      <nav className="py-4 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-8">
             {/* Logo */}
@@ -123,4 +111,5 @@ export default function Header() {
       </nav>
     </header>
   );
+
 }

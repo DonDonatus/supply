@@ -27,7 +27,7 @@ export default function ContactsPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-blue pt-32">
+      <section className="relative min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-blue">
         <div className="absolute inset-0">
           <Image
             src="/contact.jpg"
@@ -39,33 +39,33 @@ export default function ContactsPage() {
           <div className="absolute inset-0 bg-brand-blue/40"></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             Let's Start a Conversation
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Ready to transform your supply chain? Our team is here to help you succeed.
           </p>
         </div>
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-start">
             {/* Left Column - Contact Form */}
             <div>
-              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4 uppercase tracking-wide">
+              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-3 sm:mb-4 uppercase tracking-wide">
                 GET IN TOUCH
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                 Schedule Your Consultation
               </h2>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                 Fill out the form below and our team will get back to you within 24 hours.
               </p>
 
-              <div className="bg-white rounded-xl shadow-sm p-6 space-y-5">
+              <div className="bg-white rounded-xl shadow-sm p-4 sm:p-5 md:p-6 space-y-4 sm:space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-xs font-medium text-gray-700 mb-1.5">
                     Full Name *
@@ -76,7 +76,7 @@ export default function ContactsPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
+                    className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -91,12 +91,12 @@ export default function ContactsPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
+                    className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
                   <div>
                     <label htmlFor="company" className="block text-xs font-medium text-gray-700 mb-1.5">
                       Company
@@ -107,7 +107,7 @@ export default function ContactsPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
+                      className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
                       placeholder="Your Company"
                     />
                   </div>
@@ -122,7 +122,7 @@ export default function ContactsPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
+                      className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
@@ -138,7 +138,7 @@ export default function ContactsPage() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all resize-none"
+                    className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 focus:outline-none transition-all resize-none"
                     placeholder="Tell us about your supply chain challenges..."
                   />
                 </div>
@@ -156,40 +156,40 @@ export default function ContactsPage() {
             </div>
 
             {/* Right Column - Contact Information */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* Contact Info Card */}
-              <div className="bg-white rounded-xl shadow-sm p-6 border-l-4 border-brand-orange hover:shadow-md transition-shadow duration-200">
-                <div className="space-y-4">
-                  <a href="mailto:info@scvsupplychain.com" className="flex items-center gap-3.5 group">
-                    <div className="w-9 h-9 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+              <div className="bg-white rounded-xl shadow-sm p-4 sm:p-5 md:p-6 border-l-4 border-brand-orange hover:shadow-md transition-shadow duration-200">
+                <div className="space-y-3 sm:space-y-4">
+                  <a href="mailto:info@scvsupplychain.com" className="flex items-center gap-3 sm:gap-3.5 group">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
                       <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="text-gray-900 text-sm font-medium group-hover:text-brand-orange transition-colors">
+                    <span className="text-gray-900 text-xs sm:text-sm font-medium group-hover:text-brand-orange transition-colors">
                       info@scvsupplychain.com
                     </span>
                   </a>
 
-                  <a href="tel:+15550000000" className="flex items-center gap-3.5 group">
-                    <div className="w-9 h-9 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
+                  <a href="tel:+15550000000" className="flex items-center gap-3 sm:gap-3.5 group">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-orange/20 transition-colors">
                       <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
-                    <span className="text-gray-900 text-sm font-medium group-hover:text-brand-orange transition-colors">
+                    <span className="text-gray-900 text-xs sm:text-sm font-medium group-hover:text-brand-orange transition-colors">
                       +1 (555) 000-0000
                     </span>
                   </a>
 
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0">
+                  <div className="flex items-start gap-3 sm:gap-3.5">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-brand-orange/10 flex items-center justify-center flex-shrink-0">
                       <svg className="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <p className="text-gray-900 text-sm font-medium leading-relaxed pt-1.5">
+                    <p className="text-gray-900 text-xs sm:text-sm font-medium leading-relaxed pt-1.5">
                       123 Supply Chain Way, Suite 100<br />
                       City, State 12345
                     </p>
@@ -198,9 +198,9 @@ export default function ContactsPage() {
               </div>
 
               {/* Office Hours Card */}
-              <div className="bg-white rounded-xl shadow-sm p-6 border-l-4 border-brand-blue hover:shadow-md transition-shadow duration-200">
-                <h3 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wider">Office Hours</h3>
-                <div className="space-y-2.5">
+              <div className="bg-white rounded-xl shadow-sm p-4 sm:p-5 md:p-6 border-l-4 border-brand-blue hover:shadow-md transition-shadow duration-200">
+                <h3 className="text-xs font-bold text-gray-900 mb-3 sm:mb-4 uppercase tracking-wider">Office Hours</h3>
+                <div className="space-y-2 sm:space-y-2.5">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600 text-xs font-medium">Mon - Fri</span>
                     <span className="text-gray-900 text-xs font-semibold tabular-nums">9:00 AM - 6:00 PM</span>
