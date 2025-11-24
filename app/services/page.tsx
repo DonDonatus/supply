@@ -107,7 +107,33 @@ const servicesData = [
 ];
 
 export default function ServicesPage() {
-  const [activeService, setActiveService] = useState(servicesData[0]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Auto-rotate through services every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setActiveIndex((prev) => (prev + 1) % servicesData.length);
+        setIsAnimating(false);
+      }, 300);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const activeService = servicesData[activeIndex];
+
+  const handleServiceClick = (index: number) => {
+    if (index !== activeIndex) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setActiveIndex(index);
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -115,7 +141,7 @@ export default function ServicesPage() {
       <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-blue pt-32">
         <div className="absolute inset-0">
           <Image
-            src="/serve.jpg"
+            src="/service.jpg"
             alt="Our Services"
             fill
             className="object-cover"
@@ -134,60 +160,100 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Navigation */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {servicesData.map((service) => (
-              <button
-                key={service.id}
-                onClick={() => setActiveService(service)}
-                className={`px-5 py-2.5 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  activeService.id === service.id
-                    ? 'bg-brand-blue text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                {service.title}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Active Service Details */}
+      {/* Services Grid Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            {/* Service Header */}
-            <div className="mb-12">
-              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4">
-                {activeService.title.toUpperCase()}
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                {activeService.tagline}
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                {activeService.description}
-              </p>
+          <div className="grid lg:grid-cols-2 gap-10">
+            {/* Left Column - Service List */}
+            <div className="space-y-2">
+              {servicesData.map((service, index) => (
+                <button
+                  key={service.id}
+                  onClick={() => handleServiceClick(index)}
+                  className={`w-full text-left p-3.5 rounded-lg border transition-all duration-300 ${
+                    activeIndex === index
+                      ? 'border-brand-blue bg-brand-blue/5 shadow-sm'
+                      : 'border-gray-200 bg-white hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold transition-colors ${
+                      activeIndex === index 
+                        ? 'bg-brand-blue text-white' 
+                        : 'bg-gray-100 text-gray-500'
+                    }`}>
+                      {index + 1}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`text-sm font-bold mb-0.5 transition-colors ${
+                        activeIndex === index ? 'text-brand-blue' : 'text-gray-900'
+                      }`}>
+                        {service.title}
+                      </h3>
+                      <p className="text-xs text-gray-500 line-clamp-1">{service.tagline}</p>
+                    </div>
+                  </div>
+                </button>
+              ))}
             </div>
 
-            {/* Capabilities Grid */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                Key Capabilities
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {activeService.capabilities.map((capability, index) => (
-                  <div
-                    key={index}
-                    className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors duration-200"
-                  >
-                    <p className="text-gray-900 text-sm font-normal">
-                      {capability}
-                    </p>
+            {/* Right Column - Service Details */}
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <div
+                className={`transition-all duration-300 ${
+                  isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                }`}
+              >
+                {/* Service Header */}
+                <div className="mb-6">
+                  <div className="inline-block bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-1 rounded-md mb-2 uppercase tracking-wide">
+                    {activeService.title}
                   </div>
-                ))}
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                    {activeService.tagline}
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {activeService.description}
+                  </p>
+                </div>
+
+                {/* Capabilities */}
+                <div>
+                  <h3 className="text-base font-bold text-gray-900 mb-3">
+                    Key Capabilities
+                  </h3>
+                  <div className="grid gap-2">
+                    {activeService.capabilities.map((capability, index) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-2.5 bg-gray-50 rounded-md p-2.5 hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="flex-shrink-0 w-3.5 h-3.5 rounded-full bg-brand-blue/10 flex items-center justify-center mt-0.5">
+                          <svg className="w-2 h-2 text-brand-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <p className="text-gray-900 text-xs font-normal flex-1 leading-relaxed">
+                          {capability}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Progress Indicator */}
+                <div className="mt-6 flex items-center gap-1.5">
+                  {servicesData.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleServiceClick(index)}
+                      className={`h-1 rounded-full transition-all duration-300 ${
+                        index === activeIndex ? 'bg-brand-blue w-6' : 'bg-gray-300 w-1'
+                      }`}
+                      aria-label={`Go to service ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from 'next/image';
+import { TrendingUp, Warehouse, Globe, Map, Palette, Mail, GraduationCap, BarChart3, Award, BookOpen, Receipt, Trophy } from 'lucide-react';
 
 export default function SuccessesPage() {
     const successStories = [
@@ -10,48 +11,64 @@ export default function SuccessesPage() {
             category: "US Small Business Administration",
             description:
                 "In support of the SBA's mission to grow entrepreneurship and create jobs across America, the SCV team was contracted to operate three ScaleUp America sites in small and rural communities on the east coast. Our programs in Roanoke, VA, Williamsport, PA, and Portland, ME created hundreds of full-time jobs and sustainable profit growth for nearly 300 small businesses.",
+            icon: TrendingUp,
+            iconColor: { bg: 'bg-blue-100', text: 'text-blue-600' }
         },
         {
             title: "Warehousing Education and Resource Council",
             category: "Industry Standards Development",
             description:
                 "The Supply Chain Visions team works hand in hand to develop the WERC standards for warehousing and distribution. Our team wrote the guides on warehouse management that have become industry standard. As part of our work with WERC, we regularly organize industry leaders to assess and review best practices to keep the industry on the cutting edge.",
+            icon: Warehouse,
+            iconColor: { bg: 'bg-green-100', text: 'text-green-600' }
         },
         {
             title: "IBEX Market Research for US Africa Command",
             category: "Defense Logistics Agency",
             description:
                 "Leveraging our global network of resources, the SCV team successfully delivered detailed market research reports for multiple regions across Africa, Latin America, and the Caribbean. Our reports provided the DLA and its clients with valuable information on sources of nearly all classes of supply in each target area.",
+            icon: Globe,
+            iconColor: { bg: 'bg-purple-100', text: 'text-purple-600' }
         },
         {
             title: "IMCP Supply Chain Mapping",
             category: "US Small Business Administration",
             description:
                 "The SCV team was contracted to assess three disrupted economies across the United States as part of the SBA's effort to support and grow the nation's vital manufacturing ecosystem. Our team reviewed the economic networks in northeast Tennessee, central Oklahoma, and southern Virginia to aid the SBA in creating resilient manufacturing supply chains.",
+            icon: Map,
+            iconColor: { bg: 'bg-orange-100', text: 'text-orange-600' }
         },
         {
             title: "Afghan Carpet Center of Excellence",
             category: "US Department of Commerce",
             description:
                 "The SCV team mapped the national value system for hand-woven carpets in Afghanistan as part of a Department of Commerce effort to restore economic independence to rural communities in the country. We began with a diversified value chain, damaged by decades of conflict, and organized producers into a community of informed participants.",
+            icon: Receipt,
+            iconColor: { bg: 'bg-red-100', text: 'text-red-600' }
         },
         {
             title: "Skills Development",
             category: "United States Postal Service",
             description:
                 "As the Postal Service continues to face erosion of their core business, combined with competitive pressure from players like FedEx, UPS, and Amazon, leadership has engaged SCV to help find and address opportunities through core skills development.",
+            icon: Mail,
+            iconColor: { bg: 'bg-indigo-100', text: 'text-indigo-600' }
         },
         {
             title: "Supply Chain Management School",
             category: "Veterans Affairs Acquisition Academy",
             description:
                 "We deliver best-in-class education and professional development to the VA's supply chain workforce. Training happens at the VAAA campus in Maryland and over the web with distance-based learning. We address material and technical skills, VA-specific functional areas, and core activities.",
+            icon: GraduationCap,
+            iconColor: { bg: 'bg-pink-100', text: 'text-pink-600' }
         },
         {
             title: "Life Cycle Cost Analysis",
             category: "US Trade & Development Agency",
             description:
                 "SCV designed and developed the Life Cycle Cost Analysis Curriculum. USTDA aims to enhance the skills of partner countries. Based on the success of the first iteration with five partner nations, USTDA has extended work with SCV through 2025.",
+            icon: BarChart3,
+            iconColor: { bg: 'bg-teal-100', text: 'text-teal-600' }
         },
     ];
 
@@ -92,21 +109,59 @@ export default function SuccessesPage() {
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-8">
-                        {successStories.map((story, index) => (
+                        {successStories.map((story, index) => {
+                            const Icon = story.icon;
+
+                            return (
+                                <div
+                                    key={index}
+                                    className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300"
+                                >
+                                    <div className="flex items-start gap-4 mb-4">
+                                        <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${story.iconColor.bg} flex items-center justify-center`}>
+                                            <Icon className={`w-6 h-6 ${story.iconColor.text}`} />
+                                        </div>
+                                        <div className="flex-1">
+                                            <span className="inline-block bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md uppercase tracking-wide">
+                                                {story.category}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">
+                                        {story.title}
+                                    </h3>
+                                    <p className="text-gray-700 leading-relaxed">
+                                        {story.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* Awards & Recognition Section */}
+            <section className="py-20 bg-gray-50">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="mb-12">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-12 h-12 rounded-md bg-yellow-100 flex items-center justify-center">
+                                <Trophy className="w-8 h-8 text-yellow-600" />
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                                Awards & Recognition
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div className="space-y-4">
+                        {awards.map((award, index) => (
                             <div
                                 key={index}
-                                className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 hover:border-brand-blue hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                                className="bg-white rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors"
                             >
-                                <div className="mb-4">
-                                    <span className="inline-block px-4 py-1.5 bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wider rounded-full">
-                                        {story.category}
-                                    </span>
-                                </div>
-                                <h3 className="text-xl md:text-2xl font-semibold text-brand-black mb-4">
-                                    {story.title}
-                                </h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    {story.description}
+                                    {award}
                                 </p>
                             </div>
                         ))}
@@ -114,67 +169,34 @@ export default function SuccessesPage() {
                 </div>
             </section>
 
-            {/* Awards & Recognition Section */}
-            <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 md:mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-black mb-3 md:mb-4">
-                            Awards & Recognition
-                        </h2>
-                        <div className="w-20 h-1 bg-brand-orange mx-auto"></div>
-                    </div>
-
-                    <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border-2 border-gray-200">
-                        <ul className="space-y-6">
-                            {awards.map((award, index) => (
-                                <li
-                                    key={index}
-                                    className="flex items-start gap-4 text-gray-700 text-base md:text-lg"
-                                >
-                                    <div className="flex-shrink-0 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center mt-1">
-                                        <svg
-                                            className="w-4 h-4 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={3}
-                                                d="M5 13l4 4L19 7"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <span className="leading-relaxed flex-1">
-                                        {award}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
             {/* Publications Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 md:mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-black mb-3 md:mb-4">
-                            Publications
-                        </h2>
-                        <div className="w-20 h-1 bg-brand-orange mx-auto"></div>
+                    <div className="mb-12">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                                Publications
+                            </h2>
+                        </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 md:p-12 shadow-xl border-2 border-gray-200">
-                        <p className="text-gray-700 text-lg mb-6 font-semibold">
+                    <div className="bg-white rounded-lg p-8 border border-gray-200">
+                        <p className="text-gray-900 text-lg font-semibold mb-4">
                             Quarterly Editorials
+                        </p>
+                        <p className="text-gray-600 mb-6">
+                            Read our thought leadership and industry insights published in Supply Chain Quarterly.
                         </p>
                         <a
                             href="https://www.supplychainquarterly.com/blogs/1-reflections"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-blue-dark transition-all duration-200 shadow-md hover:shadow-lg"
+                            className="inline-flex items-center gap-2 text-brand-blue hover:text-brand-blue-dark font-medium transition-colors"
                         >
                             View Our Contributions
                             <svg
@@ -187,7 +209,7 @@ export default function SuccessesPage() {
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeWidth={2}
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
                                 />
                             </svg>
                         </a>

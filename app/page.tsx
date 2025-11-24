@@ -20,7 +20,7 @@ export default function Home() {
         {/* Background image covering full section */}
         <div className="absolute inset-0">
           <Image
-            src="/container.jpg"
+            src="/chain.jpg"
             alt="Shipping Containers"
             fill
             className="object-cover"
@@ -71,6 +71,9 @@ export default function Home() {
               <Image src="/logo/airforce.png" alt="Air Force" width={100} height={100} className="h-16 w-auto object-contain" />
             </div>
             <div className="flex items-center justify-center">
+              <Image src="/logo/africacom.png" alt="Air Force" width={100} height={100} className="h-16 w-auto object-contain" />
+            </div>
+            <div className="flex items-center justify-center">
               <Image src="/logo/mda.png" alt="MDA" width={100} height={100} className="h-16 w-auto object-contain" />
             </div>
           </div>
@@ -102,7 +105,7 @@ export default function Home() {
             {/* Right Image */}
             <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/dock2.jpg"
+                src="/abou.jpg"
                 alt="Supply Chain Operations"
                 fill
                 className="object-cover"
@@ -129,7 +132,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-3 mb-3">
                 <div className="relative h-48 rounded-xl overflow-hidden">
                   <Image
-                    src="/ware.jpg"
+                    src="/work.jpg"
                     alt="Supply Chain Operations"
                     fill
                     className="object-cover"
@@ -146,7 +149,7 @@ export default function Home() {
               </div>
               <div className="relative h-64 rounded-xl overflow-hidden">
                 <Image
-                  src="/supply.jpg"
+                  src="/office.jpg"
                   alt="Warehouse Operations"
                   fill
                   className="object-cover"
@@ -202,42 +205,92 @@ export default function Home() {
       {/* Success Stories Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
             {/* Left Column - Header */}
             <div>
-              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4">
-                SUCCESS STORIES
+              <div className="inline-block bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md mb-4 uppercase tracking-wide">
+                TESTIMONIALS
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                We are the experts the experts turn to.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                Client Success Stories
               </h2>
-              <Link
-                href="/successes"
-                className="inline-flex items-center gap-2 text-brand-orange font-semibold text-base border-2 border-brand-orange px-5 py-2.5 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"
-              >
-                Learn More
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
             </div>
 
-            {/* Right Column - Content Card */}
-            <div className="bg-white p-9 rounded-xl shadow-sm">
-              <p className="text-gray-900 text-base md:text-lg leading-relaxed mb-6">
-                Our <span className="text-brand-orange font-semibold">experts</span> are{' '}
-                <span className="text-brand-orange font-semibold">strategists</span>,{' '}
-                <span className="text-brand-orange font-semibold">planners</span>,{' '}
-                <span className="text-brand-orange font-semibold">logisticians</span>,{' '}
-                <span className="text-brand-orange font-semibold">scientists</span>,{' '}
-                <span className="text-brand-orange font-semibold">trainers</span>,{' '}
-                <span className="text-brand-orange font-semibold">educators</span>, and{' '}
-                <span className="text-brand-orange font-semibold">data visualization professionals</span>.
+            {/* Right Column - Description & Button */}
+            <div className="flex flex-col justify-center">
+              <p className="text-gray-600 text-base leading-relaxed mb-6">
+                Our clients across government, defense, aerospace, and commercial sectors have achieved measurable improvements in efficiency, risk mitigation, and cost savings.
               </p>
-              <p className="text-gray-600 text-base leading-relaxed">
-                With more than 25 years of experience and are published across government, 
-                business, aerospace, and defense.
+              <div>
+                <Link
+                  href="/successes"
+                  className="inline-flex items-center gap-2 text-brand-orange font-semibold text-base border-2 border-brand-orange px-5 py-2.5 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"
+                >
+                  View All Stories
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Testimonial 1 */}
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="mb-6">
+                <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              <p className="text-gray-900 text-base leading-relaxed mb-6">
+                The consulting team is always helpful and available to answer any questions. Their strategic insights are consistently on point, which is crucial for our business operations and supply chain optimization.
               </p>
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 flex-shrink-0">
+                  <Image
+                    src="/man.jpg"
+                    alt="Thomas Pold"
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">Thomas Pold</p>
+                  <p className="text-xs text-gray-600">Supply Chain Director</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="mb-6">
+                <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              <p className="text-gray-900 text-base leading-relaxed mb-6">
+                We appreciate the strategic approach to supply chain risk management. The economic network analysis provided valuable insights that helped us identify and mitigate potential disruptions in our supply chain.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 flex-shrink-0">
+                  <Image
+                    src="/woman.jpg"
+                    alt="Jenny Morphy"
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">Jenny Morphy</p>
+                  <p className="text-xs text-gray-600">VP of Supply Chain Operations</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
